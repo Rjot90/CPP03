@@ -2,12 +2,13 @@
 
 class ClapTrap {
 
-    private:
+    protected:
         std::string _name;
         int         _hitPoints;
         int         _energy;
         int         _damage;
     public:
+        ClapTrap();
         ClapTrap(std::string name);
         ~ClapTrap();
         void    attack(const std::string &target);
