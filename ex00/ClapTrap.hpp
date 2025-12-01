@@ -8,7 +8,10 @@ class ClapTrap {
         int         _energy;
         int         _damage;
     public:
+        ClapTrap();
         ClapTrap(std::string name);
+        ClapTrap(const ClapTrap & obj);
+        ClapTrap& operator=(const ClapTrap & obj);
         ~ClapTrap();
         void    attack(const std::string &target);
         void    takeDamage(unsigned int amount);
