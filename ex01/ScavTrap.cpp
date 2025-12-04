@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(const ScavTrap & obj) {
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-    std::cout << "[ClapTrap] assignment operator called" << std::endl;
+    std::cout << "[ScavTrap] assignment operator called" << std::endl;
     if (this != &other) {
         this->_damage = other._damage;
         this->_energy = other._energy;
