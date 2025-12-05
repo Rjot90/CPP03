@@ -1,33 +1,35 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-int main(void) {
-    
-    std::cout << "=== TEST SCAVTRAP ===" << std::endl;
+int main() {
+    std::cout << "=== TEST FRAGTRAP ===" << std::endl;
 
-    ScavTrap s1("Guardian");
-    ScavTrap s2("Intruder");
+    FragTrap a("Alpha");
+    FragTrap b("Bravo");
+    FragTrap c(a);            // Test constructeur par copie
+    c = b;                    // Test opérateur d'affectation
 
-    std::cout << "\n--- Attacks ---" << std::endl;
-    s1.attack("Intruder");
+    std::cout << "\n--- Attaques ---" << std::endl;
+    a.attack("Bravo");
+    b.takeDamage(30);
 
-    std::cout << "\n--- Take Damage & Repair ---" << std::endl;
-    s2.takeDamage(30);
-    s2.beRepaired(20);
+    b.attack("Alpha");
+    a.takeDamage(20);
 
-    std::cout << "\n--- Gate Keeper Mode ---" << std::endl;
-    s1.guardGate();
+    std::cout << "\n--- Réparations ---" << std::endl;
+    a.beRepaired(15);
+    b.beRepaired(10);
 
-    std::cout << "\n--- Energy Drain Test ---" << std::endl;
-    for (int i = 0; i < 55; i++)
-        s1.attack("Dummy");
+    std::cout << "\n--- Capacité spéciale ---" << std::endl;
+    a.highFivesGuys();
+    b.highFivesGuys();
 
-    std::cout << "\n--- Copy Constructor / Assignment ---" << std::endl;
-    ScavTrap copy(s1);
-    ScavTrap assigned;
-    assigned = s2;
+    std::cout << "\n--- Attaques jusqu'à energy points = 0 ---" << std::endl;
+    for (int i = 0; i < 15; i++)
+        a.attack("somebody");
 
-    copy.attack("CopyTarget");
-    assigned.attack("AssignedTarget");
+    std::cout << "\n--- Endurance Check ---" << std::endl;
+    a.beRepaired(5);  // devrait échouer si plus d’énergie
+    a.highFivesGuys(); // doit fonctionner même sans énergie (si ton sujet l’autorise)
 
     std::cout << "\n=== END TEST ===" << std::endl;
     return 0;

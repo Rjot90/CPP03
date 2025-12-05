@@ -29,7 +29,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 }
 
 ScavTrap::~ScavTrap() {
-    std::cout << "[ScavTrap] Destructor called" << std::endl;
+    std::cout << "[ScavTrap] Destructor called for " << _name << std::endl;
 }
 
 void    ScavTrap::guardGate() {

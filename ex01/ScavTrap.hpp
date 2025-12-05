@@ -1,3 +1,4 @@
+#pragma once
 #include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap {
@@ -8,5 +9,6 @@ class ScavTrap : public ClapTrap {
         ScavTrap& operator=(const ScavTrap & obj);
         ~ScavTrap();
 
+        void attack(const std::string &target);
         void guardGate();
 };
